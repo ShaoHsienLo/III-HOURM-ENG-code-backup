@@ -2,7 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1655aafe-4859-42b9-8d6c-648c41ef12d5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/field test/model_predicting.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/field test/subscribe-mqtt-save-new-ipc-data-to-postgres.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/field test/subscribe-mqtt-save-new-ipc-data-to-postgres.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/field test/subscribe-mqtt-save-old-ipc-data-to-postgres.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/field test/subscribe-mqtt-save-old-ipc-data-to-postgres.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model_training_f_classif.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model_training_v1.1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apply-label.py" beforeDir="false" afterPath="$PROJECT_DIR$/apply-label.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/subscribe-mqtt-save-data-to-postgres.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/training.py" beforeDir="false" afterPath="$PROJECT_DIR$/model_training_v1.0.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,8 +50,13 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.profiling">
-    <configuration name="apply-label (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\samuello\Downloads\III\宏英\code" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.model_training_f_classif">
+    <configuration name="model_training_f_classif" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="code" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -52,7 +68,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/apply-label.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/model_training_f_classif.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -61,7 +77,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="apply-label" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="model_training_v1.0" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="code" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -73,7 +89,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\samuello\Downloads\III\宏英\code\apply-label.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\samuello\Downloads\III\宏英\code\model_training_v1.0.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -82,7 +98,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="find-normal-data-range (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="model_training_v1.1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="code" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -94,7 +110,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/find-normal-data-range.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/model_training_v1.1.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -124,7 +140,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="training" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="ttt" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="code" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -132,11 +148,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Desktop" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/training.py" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/Desktop/ttt.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -147,11 +163,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.model_training_f_classif" />
+        <item itemvalue="Python.ttt" />
+        <item itemvalue="Python.model_training_v1.1" />
         <item itemvalue="Python.profiling" />
-        <item itemvalue="Python.training" />
-        <item itemvalue="Python.apply-label (1)" />
-        <item itemvalue="Python.apply-label" />
-        <item itemvalue="Python.find-normal-data-range (1)" />
+        <item itemvalue="Python.model_training_v1.0" />
       </list>
     </recent_temporary>
   </component>
@@ -165,5 +181,16 @@
       <updated>1660813131230</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

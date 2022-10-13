@@ -12,14 +12,11 @@ data = pd.read_csv("data.csv")
 data = data.fillna(method="bfill")
 data["label"] = data["final thickness"].apply(f)
 shift = 60
-print(data.head(10))
 data = data.sort_index(ascending=False)
-print(data.head(10))
-print(data.shape)
 data = data.shift(shift)
 data = data.dropna(how="all")
-print(data.shape)
-data.to_csv("data_.csv", index=False)
+print(data)
+# data.to_csv("data_.csv", index=False)
 
 
 
