@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1655aafe-4859-42b9-8d6c-648c41ef12d5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/plot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apply-label.py" beforeDir="false" afterPath="$PROJECT_DIR$/apply-label.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model_training_f_classif.py" beforeDir="false" afterPath="$PROJECT_DIR$/model_training_f_classif.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/profiling.py" beforeDir="false" afterPath="$PROJECT_DIR$/profiling.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,7 +45,7 @@
       <recent name="C:\Users\samuello\Downloads\III\宏英\code" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.model_training_f_classif">
+  <component name="RunManager" selected="Python.profiling">
     <configuration name="apply-label" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="code" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -157,8 +153,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.model_training_f_classif" />
         <item itemvalue="Python.profiling" />
+        <item itemvalue="Python.model_training_f_classif" />
         <item itemvalue="Python.plot" />
         <item itemvalue="Python.apply-label" />
         <item itemvalue="Python.ttt" />

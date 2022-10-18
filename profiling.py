@@ -2,15 +2,15 @@ from pandas_profiling import ProfileReport
 import sweetviz as sv
 import pandas as pd
 
-pd.set_option("display.max_columns", 100)
+# pd.set_option("display.max_columns", 100)
 
 
-data = pd.read_csv("./data/labeled-data.csv")
-print(len(data))
-data = data[(data["final thickness"] >= 1.0) & (data["final thickness"] <= 1.6)]
-print(len(data))
-print(data.describe())
-exit(0)
+data = pd.read_csv("./data/data.csv")
+# print(len(data))
+# data = data[(data["final thickness"] >= 1.0) & (data["final thickness"] <= 1.6)]
+# print(len(data))
+# print(data.describe())
+# exit(0)
 
 # 擷取時間段：8/13-8/14
 # data["Timestamp"] = pd.to_datetime(data["Timestamp"], format="%Y-%m-%d %H:%M:%S")
@@ -38,15 +38,15 @@ exit(0)
 # print("正常數量: ", len(data[data["label"] == "正常"]))
 # print("異常數量: ", len(data[data["label"] == "異常"]))
 
-data = data.drop(columns=["Timestamp", "thickness", "final thickness"])
-data.to_csv("./data/data.csv", index=False)
-print(data.shape)
+# data = data.drop(columns=["Timestamp", "thickness", "final thickness"])
+# data.to_csv("./data/data.csv", index=False)
+# print(data.shape)
 
 # Pandas Profiling
-# report = ProfileReport(data, title="Pandas Profiling", minimal=True)
-# report.to_file("./eda/0813-0814共11多萬筆的/Pandas-Profiling.html")
+report = ProfileReport(data, title="Pandas Profiling", minimal=True)
+report.to_file("./eda/撈取資料範圍1.0到1.6的/Pandas-Profiling.html")
 
 # Sweetviz
 # report = sv.analyze(data)
-# report.show_html(filepath='./eda/0813-0814共11多萬筆的/Sweetviz-Profiling.html', open_browser=False)
+# report.show_html(filepath='./eda/撈取資料範圍1.0到1.6的/Sweetviz-Profiling.html', open_browser=False)
 
