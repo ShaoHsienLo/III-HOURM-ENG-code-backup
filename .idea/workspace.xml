@@ -2,18 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1655aafe-4859-42b9-8d6c-648c41ef12d5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/field test/model_predicting.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/field test/subscribe-mqtt-save-new-ipc-data-to-postgres.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/field test/subscribe-mqtt-save-new-ipc-data-to-postgres.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/field test/subscribe-mqtt-save-old-ipc-data-to-postgres.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/field test/subscribe-mqtt-save-old-ipc-data-to-postgres.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model_training_f_classif.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model_training_v1.1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/field test/update_data_to_grafana.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apply-label.py" beforeDir="false" afterPath="$PROJECT_DIR$/apply-label.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/subscribe-mqtt-save-data-to-postgres.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/training.py" beforeDir="false" afterPath="$PROJECT_DIR$/model_training_v1.0.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/field test/model_predicting.py" beforeDir="false" afterPath="$PROJECT_DIR$/field test/model_predicting.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_training_v1.1.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/profiling.py" beforeDir="false" afterPath="$PROJECT_DIR$/profiling.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +40,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="ToolWindowRun.ShowToolbar" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../旺欉/code" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -55,7 +48,7 @@
       <recent name="C:\Users\samuello\Downloads\III\宏英\code" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.model_training_f_classif">
+  <component name="RunManager" selected="Python.profiling">
     <configuration name="model_training_f_classif" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="code" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -163,10 +156,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.profiling" />
         <item itemvalue="Python.model_training_f_classif" />
         <item itemvalue="Python.ttt" />
         <item itemvalue="Python.model_training_v1.1" />
-        <item itemvalue="Python.profiling" />
         <item itemvalue="Python.model_training_v1.0" />
       </list>
     </recent_temporary>
@@ -192,5 +185,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

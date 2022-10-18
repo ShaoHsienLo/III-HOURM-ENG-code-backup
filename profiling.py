@@ -3,7 +3,8 @@ import sweetviz as sv
 import pandas as pd
 
 
-data = pd.read_csv("data_.csv")
+data = pd.read_csv("./data/data_.csv")
+print(len(data))
 
 # 擷取時間段：8/13-8/14
 data["Timestamp"] = pd.to_datetime(data["Timestamp"], format="%Y-%m-%d %H:%M:%S")
@@ -11,6 +12,7 @@ data = data[
     (data["Timestamp"] > pd.to_datetime("2022-08-13", format="%Y-%m-%d")) &
     (data["Timestamp"] < pd.to_datetime("2022-08-15", format="%Y-%m-%d"))
 ]
+print(len(data))
 normal_data = data[data["label"] == "正常"]
 abnormal_data = data[data["label"] == "異常"]
 normal_rate = 0.82
@@ -22,6 +24,7 @@ print("正常數量: ", len(data[data["label"] == "正常"]))
 print("異常數量: ", len(data[data["label"] == "異常"]))
 
 data = data.drop(columns=["Timestamp", "thickness", "final thickness"])
+print(data.head())
 print(data.columns)
 exit(0)
 
