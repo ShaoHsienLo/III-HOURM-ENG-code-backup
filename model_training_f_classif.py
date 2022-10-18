@@ -13,8 +13,9 @@ from imblearn.combine import SMOTEENN
 from sklearn.feature_selection import SelectKBest, f_classif
 from lime.lime_tabular import LimeTabularExplainer
 from loguru import logger
+from sklearn.neighbors import KNeighborsClassifier
 
-# pd.set_option('display.max_rows', 100)
+pd.set_option('display.max_columns', 100)
 
 
 def read_file(path, file):
@@ -103,35 +104,54 @@ def smoteenn(X_train_pca, y_train):
     return X_train_res, y_train_res
 
 
-def model_training(X_train_res, y_train_res):
+def rf_model_training(X_train_res, y_train_res):
     logger.info("model training ...")
     rf = RandomForestClassifier(n_estimators=100, random_state=42, max_depth=3)
     rf.fit(X_train_res, y_train_res)
     return rf
 
 
-def explain_model(rf, X_train, X_test, target_names=None):
+def knn_model_training(X_train_res, y_train_res):
+    logger.info("model training ...")
+    knn = KNeighborsClassifier(n_neighbors=2)
+    knn.fit(X_train_res, y_train_res)
+    return knn
+    # predicted = knn.predict(X_train)
+    # print('訓練集: ', knn.score(X_train_res, y_train_res))
+    # print('測試集: ', knn.score(X_test, y_test))
+
+
+def explain_model(rf, X_train, X_test, target_names=None, model_name="rf.model"):
     logger.info("explain model ...")
     X_train_ = X_train.copy().reset_index(drop=True)
     X_test_ = X_test.copy().reset_index(drop=True)
     explainer = LimeTabularExplainer(X_train_.values, feature_names=X_train_.columns, class_names=target_names)
     i = random.randint(0, X_test_.shape[0])
     exp = explainer.explain_instance(X_test_.iloc[i], rf.predict_proba)
-    exp.save_to_file("exp.html")
+    exp.save_to_file("./explain-model/{}-exp.html".format(model_name))
 
 
-def show_performances(rf, X_test_norm, y_test, target_names=None):
+def show_performances(model, X_test_norm, y_test, target_names=None):
     logger.info("show performances ...")
-    y_pred = rf.predict(X_test_norm)
+    y_pred = model.predict(X_test_norm)
 
-    print("Confusion metric:\n{}\n".format(classification_report(y_test, y_pred, target_names=target_names)))
+    try:
+        print("Confusion metric:\n{}\n".format(classification_report(y_test, y_pred, target_names=target_names)))
+    except Exception as e:
+        print(e)
 
-    importrances = {'feature': X_test_norm.columns, 'importance': rf.feature_importances_}
-    importrances_df = pd.DataFrame(data=importrances).sort_values(by=['importance'], ascending=False)
-    print("Feature importances:\n{}\n".format(importrances_df))
+    try:
+        importrances = {'feature': X_test_norm.columns, 'importance': model.feature_importances_}
+        importrances_df = pd.DataFrame(data=importrances).sort_values(by=['importance'], ascending=False)
+        print("Feature importances:\n{}\n".format(importrances_df))
+    except Exception as e:
+        print(e)
 
-    score = roc_auc_score(y_test, rf.predict_proba(X_test_norm)[:, 1])
-    print("ROC SUC score:\n{}\n".format(score))
+    try:
+        score = roc_auc_score(y_test, model.predict_proba(X_test_norm)[:, 1])
+        print("ROC SUC score:\n{}\n".format(score))
+    except Exception as e:
+        print(e)
 
 
 def visualization(rf, feature_list):
@@ -142,20 +162,20 @@ def visualization(rf, feature_list):
     graph.write_png('./visualization/tree.png')
 
 
-def save_model(rf, model_name="rf.model"):
+def save_model(model, model_name="rf.model"):
     logger.info("save model ...")
-    joblib.dump(rf, "model-data/20221013/rf.model")
+    joblib.dump(model, "model-data/20221018/{}".format(model_name))
 
 
 def load_model(model_name="rf.model"):
     logger.info("load model ...")
-    model = joblib.load("model-data/20221013/rf.model")
+    model = joblib.load("model-data/20221018/{}".format(model_name))
     return model
 
 
 # 讀檔
-df = read_file(r"C:\Users\samuello\Downloads\III\宏英\code\data", "data_.csv")
-df = df.drop(columns=["Timestamp", "thickness", "final thickness"])
+df = read_file(r"C:\Users\samuello\OneDrive - iii.org.tw\桌面\III\宏英\code\data", "data.csv")
+# df = df.drop(columns=["Timestamp", "thickness", "final thickness"])
 
 # 處理遺失值
 df_handle_na = handle_na_values(df)
@@ -170,7 +190,7 @@ df_no_outlier = process_outlier(df_encoded)
 X_train, X_test, y_train, y_test = split_data(df_no_outlier)
 
 # 特徵選擇(降維)
-X_train_selected, X_test_selected = select_k_best(X_train, y_train, X_test, k=6)
+X_train_selected, X_test_selected = select_k_best(X_train, y_train, X_test, k=len(X_train.columns))
 
 # 資料縮放
 X_train_norm, X_test_norm = normalization(X_train_selected, X_test_selected)
@@ -180,20 +200,26 @@ X_train_res = X_train_norm
 y_train_res = y_train
 # X_train_res, y_train_res = smoteenn(X_train_norm, y_train)
 
+models = [rf_model_training(X_train_res, y_train_res), knn_model_training(X_train_res, y_train_res)]
+model_names = ["rf.model", "knn.model"]
 # 模型訓練
-rf = model_training(X_train_res, y_train_res)
+# model = rf_model_training(X_train_res, y_train_res)
+# model = knn_model_training(X_train_res, y_train_res)
 
-# 解釋模型
-# explain_model(rf, X_train, X_test, target_names=target_names)
+for model, model_name in zip(models, model_names):
+    # 解釋模型
+    explain_model(model, X_train_res, X_test, target_names=target_names, model_name=model_name)
 
-# 儲存模型
-# save_model(rf)
+    # 儲存模型
+    # model_name = "knn.model"
+    print(model_name)
+    save_model(model, model_name=model_name)
 
-# 載入模型
-rf_model = load_model()
+    # 載入模型
+    model = load_model(model_name=model_name)
 
-# 印出模型效能數據
-show_performances(rf_model, X_test_norm, y_test, target_names=target_names)
+    # 印出模型效能數據
+    show_performances(model, X_test_norm, y_test, target_names=target_names)
 
-# 輸出決策樹圖
-# visualization(rf, X_train.columns)
+    # 輸出決策樹圖
+    # visualization(rf, X_train.columns)
