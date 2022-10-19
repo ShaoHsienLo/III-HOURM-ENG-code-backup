@@ -5,12 +5,12 @@ import pandas as pd
 # pd.set_option("display.max_columns", 100)
 
 
-data = pd.read_csv("./data/labeled-data.csv")
-data = data[
-    (data["width"] > 50) & (data["width"] < 150) &
-    (data["M_tem"] > 20) & (data["M_tem"] < 90)
-]
-print(len(data))
+data = pd.read_csv("./data/data.csv")
+# data = data[
+#     (data["width"] > 50) & (data["width"] < 150) &
+#     (data["M_tem"] > 20) & (data["M_tem"] < 90)
+# ]
+# print(len(data))
 # data = data[(data["final thickness"] >= 1.0) & (data["final thickness"] <= 1.6)]
 # print(len(data))
 # print(data.describe())
@@ -23,16 +23,16 @@ print(len(data))
 #     (data["Timestamp"] < pd.to_datetime("2022-08-15", format="%Y-%m-%d"))
 # ]
 
-data_normal = data[data["label"] == "正常"]
-data_abnormal = data[data["label"] == "異常"]
+# data_normal = data[data["label"] == "正常"]
+# data_abnormal = data[data["label"] == "異常"]
 
-print(data["label"].value_counts())
+# print(data["label"].value_counts())
 
-rate = 0.86
-extra_length = int(1 / rate * float(len(data_normal))) - len(data_normal)
-data = pd.concat([data_normal, data_abnormal.sample(n=extra_length)])
+# rate = 0.86
+# extra_length = int(1 / rate * float(len(data_normal))) - len(data_normal)
+# data = pd.concat([data_normal, data_abnormal.sample(n=extra_length)])
 
-print(data["label"].value_counts())
+# print(data["label"].value_counts())
 
 
 # normal_data = data[data["label"] == "正常"]
@@ -46,12 +46,12 @@ print(data["label"].value_counts())
 # print("異常數量: ", len(data[data["label"] == "異常"]))
 
 # data = data.drop(columns=["Timestamp", "thickness", "final thickness"])
-data.to_csv("./data/data.csv", index=False)
-print(data.shape)
+# data.to_csv("./data/data.csv", index=False)
+# print(data.shape)
 
 # Pandas Profiling
-# report = ProfileReport(data, title="Pandas Profiling", minimal=True)
-# report.to_file("./eda/0814的/Pandas-Profiling.html")
+report = ProfileReport(data, title="Pandas Profiling", minimal=True)
+report.to_file("./eda/0814的/Pandas-Profiling.html")
 
 # Sweetviz
 # report = sv.analyze(data)

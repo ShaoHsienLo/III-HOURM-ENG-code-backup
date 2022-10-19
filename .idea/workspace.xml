@@ -49,7 +49,7 @@
       <recent name="C:\Users\samuello\OneDrive - iii.org.tw\桌面\III\宏英\code\explain-model\20221018" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.model_training_f_classif">
+  <component name="RunManager" selected="Python.profiling">
     <configuration name="apply-label" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="code" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -157,8 +157,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.model_training_f_classif" />
         <item itemvalue="Python.profiling" />
+        <item itemvalue="Python.model_training_f_classif" />
         <item itemvalue="Python.plot" />
         <item itemvalue="Python.apply-label" />
         <item itemvalue="Python.ttt" />

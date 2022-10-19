@@ -210,12 +210,12 @@ model_names = ["rf.model", "knn.model"]
 
 for model, model_name in zip(models, model_names):
     # 解釋模型
-    explain_model(model, X_train_res, X_test_norm, target_names=target_names, model_name=model_name)
+    # explain_model(model, X_train_res, X_test_norm, target_names=target_names, model_name=model_name)
 
     # 儲存模型
     # model_name = "knn.model"
     print(model_name)
-    save_model(model, model_name=model_name)
+    # save_model(model, model_name=model_name)
 
     # 載入模型
     model = load_model(model_name=model_name)
