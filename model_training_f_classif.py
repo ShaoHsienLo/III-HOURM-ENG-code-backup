@@ -57,6 +57,7 @@ def process_outlier(df_handle_na, label="label"):
             (df_handle_na[k] < v[1])
         ]
     df_no_outlier = df_handle_na[(df_handle_na["In_temperature"] > 0.0)]
+    print(df_no_outlier.describe())
     return df_no_outlier
 
 
@@ -128,7 +129,7 @@ def explain_model(rf, X_train, X_test, target_names=None, model_name="rf.model")
     explainer = LimeTabularExplainer(X_train_.values, feature_names=X_train_.columns, class_names=target_names)
     i = random.randint(0, X_test_.shape[0])
     exp = explainer.explain_instance(X_test_.iloc[i], rf.predict_proba)
-    exp.save_to_file("./explain-model/{}-exp.html".format(model_name))
+    exp.save_to_file("./explain-model/20221019/{}-exp.html".format(model_name))
 
 
 def show_performances(model, X_test_norm, y_test, target_names=None):
@@ -164,18 +165,18 @@ def visualization(rf, feature_list):
 
 def save_model(model, model_name="rf.model"):
     logger.info("save model ...")
-    joblib.dump(model, "model-data/20221018/{}".format(model_name))
+    joblib.dump(model, "model-data/20221019/{}".format(model_name))
 
 
 def load_model(model_name="rf.model"):
     logger.info("load model ...")
-    model = joblib.load("model-data/20221018/{}".format(model_name))
+    model = joblib.load("model-data/20221019/{}".format(model_name))
     return model
 
 
 # 讀檔
 df = read_file(r"C:\Users\samuello\OneDrive - iii.org.tw\桌面\III\宏英\code\data", "data.csv")
-# df = df.drop(columns=["Timestamp", "thickness", "final thickness"])
+df = df.drop(columns=["Timestamp", "thickness", "final thickness"])
 
 # 處理遺失值
 df_handle_na = handle_na_values(df)
@@ -184,6 +185,7 @@ df_handle_na = handle_na_values(df)
 df_encoded, target_names = handle_categorical_data(df_handle_na)
 
 # 處理離群值...
+# df_no_outlier = df_encoded
 df_no_outlier = process_outlier(df_encoded)
 
 # 切分模型輸入資料與預測目標
@@ -196,9 +198,9 @@ X_train_selected, X_test_selected = select_k_best(X_train, y_train, X_test, k=le
 X_train_norm, X_test_norm = normalization(X_train_selected, X_test_selected)
 
 # 處理資料不平衡
-X_train_res = X_train_norm
-y_train_res = y_train
-# X_train_res, y_train_res = smoteenn(X_train_norm, y_train)
+# X_train_res = X_train_norm
+# y_train_res = y_train
+X_train_res, y_train_res = smoteenn(X_train_norm, y_train)
 
 models = [rf_model_training(X_train_res, y_train_res), knn_model_training(X_train_res, y_train_res)]
 model_names = ["rf.model", "knn.model"]
@@ -208,7 +210,7 @@ model_names = ["rf.model", "knn.model"]
 
 for model, model_name in zip(models, model_names):
     # 解釋模型
-    explain_model(model, X_train_res, X_test, target_names=target_names, model_name=model_name)
+    explain_model(model, X_train_res, X_test_norm, target_names=target_names, model_name=model_name)
 
     # 儲存模型
     # model_name = "knn.model"
